@@ -1,65 +1,64 @@
 body {
   font-family: Arial, sans-serif;
+  background: var(--bg, #f9f9f9);
+  color: var(--text, #222);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
   max-width: 500px;
   margin: auto;
-  padding: 20px;
-  background: #f8f8f8;
+  padding: 15px;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: var(--heading, #333);
+}
+
+.top-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 textarea {
   width: 100%;
   height: 70px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  resize: none;
+  padding: 8px;
+  margin-bottom: 8px;
 }
 
-button {
+#categorySelect, button {
   width: 100%;
-  margin-top: 8px;
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
 }
 
-.notes-list {
-  margin-top: 15px;
-}
-
-.note-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.note {
+  background: var(--note-bg, #fff);
+  border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.note .actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
 }
 
-.note-card p {
-  margin: 0;
-  flex: 1;
+.pinned {
+  border: 2px solid gold;
 }
 
-.note-card button {
-  background: none;
-  color: #007bff;
-  border: none;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.note-card button:hover {
-  text-decoration: underline;
+/* 🌙 Dark Mode */
+body.dark {
+  --bg: #222;
+  --text: #f9f9f9;
+  --note-bg: #333;
+  --heading: #fff;
 }
