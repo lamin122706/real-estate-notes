@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real Estate Notes</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🏠 Real Estate Notes</h1>
+  <h1>🏠 Real Estate Notes</h1>
 
-    <input type="text" id="searchBox" placeholder="🔍 Search..." />
+  <!-- Search Box -->
+  <input type="search" placeholder="🔍 Search..." />
 
-    <ul id="notesList"></ul>
+  <!-- Saved Notes Section -->
+  <div id="notes" class="notes-list"></div>
 
-    <textarea id="noteInput" placeholder="Add new note..."></textarea>
-    <button id="saveBtn">💾 Save</button>
-  </div>
+  <!-- Add New Note -->
+  <textarea placeholder="Add new note..."></textarea>
+  <button>💾 Save</button>
 
   <script src="script.js"></script>
 </body>
