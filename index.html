@@ -1,15 +1,37 @@
-<button id="openFormBtn">+ အသစ်ထည့်မယ်</button>
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ko La Min — Real Estate Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ko La Min — Real Estate Service</h1>
+    <button id="openFormBtn">+ အသစ်ထည့်မယ်</button>
+  </header>
 
-<div id="formModal" class="modal">
-  <div class="modal-content">
-    <span id="closeFormBtn" class="close">&times;</span>
-    <h3>အသစ်ထည့်မယ်</h3>
-    <form id="propertyForm">
-      <input type="text" id="title" placeholder="ခေါင်းစဉ်" required>
-      <input type="number" id="price" placeholder="ဈေးနှုန်း (Ks)" required>
-      <input type="text" id="location" placeholder="တည်နေရာ" required>
-      <textarea id="description" placeholder="ဖော်ပြချက်"></textarea>
-      <button type="submit">သိမ်းမယ်</button>
-    </form>
+  <main>
+    <h2>Property List</h2>
+    <ul id="propertyList"></ul>
+  </main>
+
+  <!-- Modal Form -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span id="closeFormBtn" class="close">&times;</span>
+      <h3>အသစ်ထည့်မယ်</h3>
+      <form id="propertyForm">
+        <input type="text" id="title" placeholder="ခေါင်းစဉ်" required>
+        <input type="number" id="price" placeholder="ဈေးနှုန်း (Ks)" required>
+        <input type="text" id="location" placeholder="တည်နေရာ" required>
+        <textarea id="description" placeholder="ဖော်ပြချက်"></textarea>
+        <button type="submit">သိမ်းမယ်</button>
+      </form>
+    </div>
   </div>
-</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
