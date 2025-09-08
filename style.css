@@ -1,32 +1,23 @@
-:root{--bg:#f7f7f8;--card:#fff;--muted:#666}
-*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans Myanmar',sans-serif;margin:0;background:var(--bg);color:#111}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(90deg,#fff,#fbfbfb);border-bottom:1px solid #e6e6e6;position:sticky;top:0;z-index:5}
-.brand{font-weight:700}
-.controls{display:flex;gap:8px;align-items:center}
-.controls input{padding:8px 12px;border-radius:999px;border:1px solid #ddd;min-width:240px}
-.controls button{padding:8px 12px;border-radius:10px;border:0;background:#111;color:#fff;cursor:pointer}
-.container{max-width:1000px;margin:18px auto;padding:0 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 2px 8px rgba(12,12,12,0.04);display:flex;flex-direction:column;gap:8px}
-.meta{display:flex;justify-content:space-between;align-items:center}
-.title{font-weight:600}
-.price{font-size:1.25rem;font-weight:700}
-.small{font-size:0.9rem;color:var(--muted)}
-.actions{display:flex;gap:8px}
-.btn{padding:6px 10px;border-radius:8px;border:1px solid #ddd;background:#fafafa;cursor:pointer}
-.btn.danger{background:#ffecec;border-color:#ffd5d5}
-.hidden{display:none}
-#msg{padding:10px;border-radius:8px;background:#e6ffe6;color:#064; margin-bottom:12px}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
 
-/* modal */
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);padding:16px}
-.modal-card{width:100%;max-width:680px;background:var(--card);padding:16px;border-radius:12px;display:flex;flex-direction:column;gap:10px}
-.modal-card label{display:flex;flex-direction:column;font-size:0.95rem}
-.modal-card input,.modal-card textarea{padding:8px;border-radius:8px;border:1px solid #ddd}
-.modal-card .row{display:flex;gap:8px}
-.modal-card .row label{flex:1}
-.modal-card .actions{display:flex;justify-content:flex-end;gap:8px}
-.modal-card button{padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
-.modal-card button#btnCancel{background:#fff;border:1px solid #ddd}
-.modal-card button#btnSave{background:#111;color:#fff}
-@media(max-width:520px){.controls input{min-width:140px}.modal-card{padding:12px}}
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
