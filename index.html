@@ -1,46 +1,15 @@
-<!doctype html>
-<html lang="my">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ko La Min — Real Estate Notes</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand">Ko La Min — Real Estate</div>
-    <div class="controls">
-      <input id="search" placeholder="မြို့၊ ခေါင်းစဥ်၊ စျေး… ရိုက်ရုံဖြင့်ရှာနိုင်သည်" />
-      <button id="btnNew">အသစ်ထည့်မည်</button>
-    </div>
-  </header>
+<button id="openFormBtn">+ အသစ်ထည့်မယ်</button>
 
-  <main class="container">
-    <div id="msg" class="hidden"></div>
-    <div id="list" class="grid"></div>
-  </main>
-
-  <!-- Modal Form -->
-  <div id="modal" class="modal hidden">
-    <form id="form" class="modal-card">
-      <h3 id="formTitle">Listing အသစ်</h3>
-      <input type="hidden" id="id" />
-      <label>ခေါင်းစဉ်<input id="title" required /></label>
-      <label>စျေးနှုန်း (Ks)<input id="price" type="number" required /></label>
-      <label>တည်နေရာ<input id="location" required /></label>
-      <div class="row">
-        <label>အိပ်ခန်း<input id="bedrooms" type="number" /></label>
-        <label>ရေချိုးခန်း<input id="bathrooms" type="number" /></label>
-        <label>အကျယ် (sqft)<input id="area" type="number" /></label>
-      </div>
-      <label>ဖော်ပြချက်<textarea id="description" rows="3"></textarea></label>
-      <div class="actions">
-        <button type="button" id="btnCancel">ပယ်ဖျက်</button>
-        <button type="submit" id="btnSave">သိမ်းမည်</button>
-      </div>
+<div id="formModal" class="modal">
+  <div class="modal-content">
+    <span id="closeFormBtn" class="close">&times;</span>
+    <h3>အသစ်ထည့်မယ်</h3>
+    <form id="propertyForm">
+      <input type="text" id="title" placeholder="ခေါင်းစဉ်" required>
+      <input type="number" id="price" placeholder="ဈေးနှုန်း (Ks)" required>
+      <input type="text" id="location" placeholder="တည်နေရာ" required>
+      <textarea id="description" placeholder="ဖော်ပြချက်"></textarea>
+      <button type="submit">သိမ်းမယ်</button>
     </form>
   </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+</div>
