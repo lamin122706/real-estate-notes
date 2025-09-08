@@ -1,37 +1,133 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ko La Min — Real Estate Service</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ko La Min Real Estate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:,">
 </head>
 <body>
-  <header>
-    <h1>Ko La Min — Real Estate Service</h1>
-    <button id="openFormBtn">+ အသစ်ထည့်မယ်</button>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">🏠</span>
+      <h1>Ko La Min Real Estate</h1>
+    </div>
+    <p class="tagline">အိမ်၊ အခန်း၊ မြေကွက်—တတ်သလောက် လွယ်ကူ မြန်ဆန်</p>
   </header>
 
-  <main>
-    <h2>Property List</h2>
-    <ul id="propertyList"></ul>
+  <main class="container">
+    <!-- Controls -->
+    <section class="controls card">
+      <div class="row">
+        <input id="q" type="search" placeholder="နေရာ/ခေါင်းစဉ် ရှာရန်…" />
+        <select id="type">
+          <option value="">အမျိုးအစားအားလုံး</option>
+          <option>Apartment</option>
+          <option>Condo</option>
+          <option>House</option>
+          <option>Land</option>
+          <option>Shop</option>
+        </select>
+        <select id="beds">
+          <option value="">အိပ်ခန်း…</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+        <input id="minPrice" type="number" inputmode="numeric" placeholder="Min ကျပ်" />
+        <input id="maxPrice" type="number" inputmode="numeric" placeholder="Max ကျပ်" />
+        <select id="sort">
+          <option value="newest">Newest</option>
+          <option value="priceAsc">Price ↑</option>
+          <option value="priceDesc">Price ↓</option>
+          <option value="bedsDesc">Bedrooms ↓</option>
+        </select>
+        <button id="clearFilters" class="ghost">Clear</button>
+      </div>
+    </section>
+
+    <!-- Add / Edit Form -->
+    <section class="card">
+      <details id="formToggle" open>
+        <summary class="summary">စာရင်းတင်/ပြင် (Listing)</summary>
+        <form id="listingForm" autocomplete="off">
+          <input type="hidden" id="id" />
+          <div class="grid">
+            <label>ခေါင်းစဉ်
+              <input id="title" required placeholder="ဥပမာ - Thamine 2BR Apartment" />
+            </label>
+            <label>နေရာ
+              <input id="location" required placeholder="အောင်မြေသာဇုံ၊ သမိန်" />
+            </label>
+            <label>ဈေးနှုန်း (ကျပ်)
+              <input id="price" type="number" required min="0" step="1" placeholder="45000000" />
+            </label>
+            <label>အိပ်ခန်း (Bedrooms)
+              <input id="bedrooms" type="number" required min="0" step="1" placeholder="2" />
+            </label>
+            <label>အမျိုးအစား
+              <select id="ptype" required>
+                <option>Apartment</option>
+                <option>Condo</option>
+                <option>House</option>
+                <option>Land</option>
+                <option>Shop</option>
+              </select>
+            </label>
+            <label>ပုံ (Image URL)
+              <input id="image" type="url" placeholder="https://…" />
+            </label>
+            <label class="full">မှတ်ချက် (Notes)
+              <textarea id="notes" rows="2" placeholder="FOC furniture / car park / near school …"></textarea>
+            </label>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary">Save</button>
+            <button type="button" id="resetForm" class="ghost">Reset</button>
+          </div>
+        </form>
+      </details>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <div class="listHeader">
+        <h2>စျေးနှုန်း/နေရာအလိုက် စိစစ်ထားသော ရလာဒ်</h2>
+        <div class="legend">
+          <span class="pill fav">★ Favorite</span>
+          <span class="pill new">NEW</span>
+        </div>
+      </div>
+      <div id="results" class="grid-cards"></div>
+      <p id="empty" class="muted" hidden>မည်သည့် ရလာဒ်မတွေ့ပါ… Filter/ရှာဖွေမှုများကို ပြန်စစ်ပါ။</p>
+    </section>
   </main>
 
-  <!-- Modal Form -->
-  <div id="formModal" class="modal">
-    <div class="modal-content">
-      <span id="closeFormBtn" class="close">&times;</span>
-      <h3>အသစ်ထည့်မယ်</h3>
-      <form id="propertyForm">
-        <input type="text" id="title" placeholder="ခေါင်းစဉ်" required>
-        <input type="number" id="price" placeholder="ဈေးနှုန်း (Ks)" required>
-        <input type="text" id="location" placeholder="တည်နေရာ" required>
-        <textarea id="description" placeholder="ဖော်ပြချက်"></textarea>
-        <button type="submit">သိမ်းမယ်</button>
-      </form>
-    </div>
-  </div>
+  <footer class="footer">
+    <small>© <span id="year"></span> Ko La Min Real Estate — လက်ရှိအချက်အလက်များကို သင်၏ device ထဲ၌သာ သိမ်းဆည်းထားသည် (offline-friendly).</small>
+  </footer>
 
-  <script src="script.js"></script>
+  <template id="cardTpl">
+    <article class="card listing">
+      <div class="imgWrap">
+        <img alt="Preview" loading="lazy" />
+        <button class="favBtn" title="Toggle favorite">☆</button>
+      </div>
+      <div class="body">
+        <h3 class="title"></h3>
+        <p class="meta"></p>
+        <p class="price"></p>
+        <p class="notes"></p>
+      </div>
+      <div class="cardActions">
+        <button class="ghost edit">ပြင်</button>
+        <button class="ghost danger del">ဖျက်</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
