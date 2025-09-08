@@ -1,64 +1,14 @@
 body {
   font-family: Arial, sans-serif;
-  background: var(--bg, #f9f9f9);
-  color: var(--text, #222);
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 15px;
+  margin: 20px;
+  background: #f8f9fa;
+  color: #333;
 }
 
 h1 {
-  text-align: center;
-  color: var(--heading, #333);
+  color: #2c3e50;
 }
 
-.top-bar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-textarea {
-  width: 100%;
-  height: 70px;
-  padding: 8px;
-  margin-bottom: 8px;
-}
-
-#categorySelect, button {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 8px;
-}
-
-.note {
-  background: var(--note-bg, #fff);
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.note .actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
-}
-
-.pinned {
-  border: 2px solid gold;
-}
-
-/* 🌙 Dark Mode */
-body.dark {
-  --bg: #222;
-  --text: #f9f9f9;
-  --note-bg: #333;
-  --heading: #fff;
+p {
+  font-size: 14px;
 }
